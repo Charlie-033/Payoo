@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="m-10">
+    <button class="btn" id="bd-btn">Bangladesh</button>
+    <button class="btn" id="usa-btn">USA</button>
+
+    <div class="flex gap-10 mt-10">
+      <p class="bd">Bangladesh</p>
+      <p class="usa">USA</p>
+    </div>
+    <script>
+        const bdBtn = document.getElementById("bd-btn");
+        const usaBtn = document.getElementById("usa-btn");
+        const Bangladesh = document.querySelector(".bd");
+        const USA = document.querySelector(".usa");
+
+        bdBtn.addEventListener("click", () => {
+            
+            USA.style.display = "none";
+            Bangladesh.style.display = "block";
+        });
+    
+        usaBtn.addEventListener("click", () => {
+           
+            Bangladesh.style.display = "none";
+            USA.style.display = "block";
+        });
+    </script>
+  </body>
+</html>
