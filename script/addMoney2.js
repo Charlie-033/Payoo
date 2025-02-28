@@ -5,13 +5,21 @@ document.getElementById('add-money').addEventListener('click', (e) => {
     const mainBalance = getInnerTextById('main-balance');
     const accountNumber = getInputValueById('bank-number');
     const accountNumberLength = document.getElementById('bank-number').value.length;
-    console.log(accountNumberLength);
+    const selectedBank = document.getElementById('bank-name').value;
+    console.log(selectedBank);
+    // console.log(accountNumberLength);
 
     if(typeof accountNumber === 'number' && accountNumberLength === 11 && typeof amount === 'number' && amount > 0){
         if(pinNumber === 0000){
             const sumBalance = amount + mainBalance;
             setInnerTextById('main-balance', sumBalance);
-            alert('Transaction successful!');   
+            alert('Transaction successful!'); 
+            
+            const transaction = document.getElementById('transaction-container');
+            const p = document.createElement('p');
+            p.innerHTML = `You have deposited ${amount} to 0${accountNumber} by ${selectedBank}`;
+            p.classList.add('history');
+            transaction.appendChild(p);
         } else{
             alert('Wrong pin number');
             document.getElementById('pin-number').value = '';
